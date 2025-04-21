@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    image: word-of-wisdom-server:latest
+    container_name: word-of-wisdom-server
+    ports:
+      - "8090:8080"  # Exposing server on port 8090
+    environment:
+      SERVER_ADDRESS: ":8080"
+      POW_DIFFICULTY: 3
+      POW_CALC_TIMEOUT: "25s"
+      READ_TIMEOUT: "5s"
+      WRITE_TIMEOUT: "5s"
+      ACCEPT_TIMEOUT: "500ms"
+      SHUTDOWN_TIMEOUT: "15s"
+      MAX_CONNECTIONS: 1000
+    networks:
+      - word_of_wisdom_network
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    image: word-of-wisdom-client:latest
+    container_name: word-of-wisdom-client
+    depends_on:
+      - server
+    environment:
+      CLIENT_SERVER_ADDRESS: "localhost:8080"
+      CLIENT_POW_TIMEOUT: "30s"
+      CLIENT_DIAL_TIMEOUT: "3s"
+      CLIENT_MAX_RETRIES: 3
+      CLIENT_BASE_RETRY_DELAY: "1s"
+      CLIENT_MAX_RETRY_DELAY: "10s"
+    networks:
+      - word_of_wisdom_network
+
+networks:
+  word_of_wisdom_network:
+    driver: bridge

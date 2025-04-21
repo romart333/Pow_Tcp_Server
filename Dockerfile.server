@@ -1,0 +1,35 @@
+# Stage 1: Build the binary
+FROM golang:1.24 AS builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o server ./cmd/server/main.go
+
+# Stage 2: Create the final image
+FROM alpine:latest
+
+WORKDIR /app
+
+
+# Reduce image size
+RUN rm -rf /var/cache/apk/* && \
+    rm -rf /tmp/*
+
+# First copy as root
+COPY --from=builder /app/server /app/server
+COPY --from=builder /app/configs /app/configs
+
+
+# Set permissions while still root
+RUN chmod +x /app/server && \
+    chown -R 1000:1000 /app
+
+
+# Then switch to non-root user
+RUN adduser -D -u 1000 appuser
+USER appuser
+
+CMD ["/app/server"]

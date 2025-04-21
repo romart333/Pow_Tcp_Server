@@ -1,0 +1,15 @@
+# Server configuration
+address: ":8080"  # TCP listen address
+
+# Proof-of-Work settings
+pow_difficulty: 3  # 1-10 (higher = more difficult)
+pow_calc_timeout: "25s"  # Timeout for POW calculation
+
+# Network timeouts
+read_timeout: "5s"     # Socket read timeout
+write_timeout: "5s"    # Socket write timeout
+accept_timeout: "500ms" # New connection accept timeout
+shutdown_timeout: "15s" # Graceful shutdown timeout
+
+# Connection limits
+max_connections: 1000  # Max concurrent connections

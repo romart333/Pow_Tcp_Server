@@ -1,0 +1,11 @@
+# Client configuration
+server_address: "localhost:8080"  # Target server address
+
+# Timeout settings
+pow_timeout: "30s"    # Timeout for POW calculation
+dial_timeout: "3s"    # Connection establishment timeout
+
+# Retry policy
+max_retries: 3         # Maximum number of retry attempts
+base_retry_delay: "1s" # Initial retry delay
+max_retry_delay: "10s" # Maximum retry delay
