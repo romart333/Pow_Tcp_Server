@@ -84,7 +84,7 @@ func (s *Server) Run(ctx context.Context) error {
 
 // acceptWithTimeout adds timeout for Accept operation
 func (s *Server) acceptWithTimeout(ctx context.Context) (net.Conn, error) {
-	ctx, cancel := context.WithTimeout(ctx, s.cfg.AcceptTimeout)
+	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
 	done := make(chan net.Conn)
@@ -93,6 +93,7 @@ func (s *Server) acceptWithTimeout(ctx context.Context) (net.Conn, error) {
 	go func() {
 		conn, err := s.listener.Accept()
 		if err != nil {
+			s.logger.Error("Error accepting connection", zap.Error(err))
 			errChan <- err
 			return
 		}
