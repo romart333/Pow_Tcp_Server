@@ -62,7 +62,7 @@ func (s *Server) Run(ctx context.Context) error {
 		case <-s.shutdown:
 			return nil
 		case s.connLimit <- struct{}{}: // Acquire connection slot
-			conn, err := s.acceptWithTimeout()
+			conn, err := s.acceptWithTimeout(ctx)
 			if err != nil {
 				<-s.connLimit // Release slot on error
 				if errors.Is(err, net.ErrClosed) {
@@ -82,8 +82,8 @@ func (s *Server) Run(ctx context.Context) error {
 }
 
 // acceptWithTimeout adds timeout for Accept operation
-func (s *Server) acceptWithTimeout() (net.Conn, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), s.cfg.AcceptTimeout)
+func (s *Server) acceptWithTimeout(ctx context.Context) (net.Conn, error) {
+	ctx, cancel := context.WithTimeout(ctx, s.cfg.AcceptTimeout)
 	defer cancel()
 
 	done := make(chan net.Conn)
