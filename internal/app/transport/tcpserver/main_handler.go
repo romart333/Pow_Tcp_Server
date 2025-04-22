@@ -1,9 +1,9 @@
 package tcpserver
 
 import (
-	"Pow_Tcp_Server/internal/app/domain"
 	"context"
 	"encoding/binary"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/domain"
 	"net"
 	"time"
 

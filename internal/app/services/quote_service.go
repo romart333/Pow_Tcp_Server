@@ -1,7 +1,7 @@
 package services
 
 import (
-	"Pow_Tcp_Server/internal/app/domain"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/domain"
 )
 
 type QuoteService struct {

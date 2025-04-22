@@ -1,6 +1,6 @@
 package mocks
 
-import "Pow_Tcp_Server/internal/app/domain"
+import "github.com/romart333/Pow_Tcp_Server/internal/app/domain"
 
 type MockPOWService struct {
 	GenerateChallengeFn func() (*domain.POWChallenge, error)

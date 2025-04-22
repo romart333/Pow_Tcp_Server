@@ -1,9 +1,9 @@
 package config
 
 import (
-	"Pow_Tcp_Server/internal/app/domain"
-	"Pow_Tcp_Server/internal/common"
 	"fmt"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/domain"
+	"github.com/romart333/Pow_Tcp_Server/internal/common"
 	"os"
 	"strconv"
 	"time"

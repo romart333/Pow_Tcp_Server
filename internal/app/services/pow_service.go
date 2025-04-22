@@ -1,10 +1,10 @@
 package services
 
 import (
-	"Pow_Tcp_Server/internal/app/domain"
-	"Pow_Tcp_Server/internal/common"
 	"crypto/sha256"
 	"encoding/binary"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/domain"
+	"github.com/romart333/Pow_Tcp_Server/internal/common"
 )
 
 type POWService struct {

@@ -1,11 +1,11 @@
 package main
 
 import (
-	"Pow_Tcp_Server/internal/app/config"
-	"Pow_Tcp_Server/internal/app/repository/inmemory_repo"
-	"Pow_Tcp_Server/internal/app/services"
-	"Pow_Tcp_Server/internal/app/transport/tcpserver"
 	"context"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/config"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/repository/inmemory_repo"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/services"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/transport/tcpserver"
 	"go.uber.org/zap"
 	"log"
 	"os"

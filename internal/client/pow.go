@@ -1,10 +1,10 @@
 package client
 
 import (
-	"Pow_Tcp_Server/internal/common"
 	"crypto/sha256"
 	"encoding/binary"
 	"errors"
+	"github.com/romart333/Pow_Tcp_Server/internal/common"
 	"time"
 )
 

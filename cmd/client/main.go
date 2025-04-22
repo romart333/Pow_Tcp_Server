@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Pow_Tcp_Server/internal/app/config"
-	"Pow_Tcp_Server/internal/client"
 	"context"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/config"
+	"github.com/romart333/Pow_Tcp_Server/internal/client"
 	"log"
 	"os"
 	"os/signal"

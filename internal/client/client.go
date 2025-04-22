@@ -1,12 +1,12 @@
 package client
 
 import (
-	"Pow_Tcp_Server/internal/app/config"
-	"Pow_Tcp_Server/internal/common"
 	"context"
 	"encoding/binary"
 	"errors"
 	"fmt"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/config"
+	"github.com/romart333/Pow_Tcp_Server/internal/common"
 	"io"
 	"math"
 	"math/rand"

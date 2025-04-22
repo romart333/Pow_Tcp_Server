@@ -1,9 +1,9 @@
 package tcpserver
 
 import (
-	"Pow_Tcp_Server/internal/app/config"
 	"context"
 	"errors"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/config"
 	"go.uber.org/zap"
 	"net"
 	"sync"

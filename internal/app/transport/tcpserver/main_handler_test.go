@@ -1,12 +1,12 @@
 package tcpserver
 
 import (
-	"Pow_Tcp_Server/internal/app/domain"
-	"Pow_Tcp_Server/internal/app/transport/tcpserver/mocks"
 	"bytes"
 	"context"
 	"encoding/binary"
 	"errors"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/domain"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/transport/tcpserver/mocks"
 	"strings"
 	"testing"
 	"time"

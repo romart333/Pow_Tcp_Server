@@ -1,8 +1,8 @@
 package domain
 
 import (
-	"Pow_Tcp_Server/internal/common"
 	"crypto/rand"
+	"github.com/romart333/Pow_Tcp_Server/internal/common"
 )
 
 // POWChallenge represents the structure of a Proof of Work challenge

@@ -1,7 +1,7 @@
 package inmemory_repo
 
 import (
-	"Pow_Tcp_Server/internal/app/domain"
+	"github.com/romart333/Pow_Tcp_Server/internal/app/domain"
 	"math/rand"
 )
 
