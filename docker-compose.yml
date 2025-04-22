@@ -30,7 +30,7 @@ services:
     depends_on:
       - server
     environment:
-      CLIENT_SERVER_ADDRESS: "localhost:8080"
+      CLIENT_SERVER_ADDRESS: "word-of-wisdom-server:8080"
       CLIENT_POW_TIMEOUT: "30s"
       CLIENT_DIAL_TIMEOUT: "3s"
       CLIENT_MAX_RETRIES: 3

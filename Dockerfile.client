@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . .
 
 RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o client ./cmd/server
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o client ./cmd/client
 
 # Stage 2: Create the final image
 FROM alpine:latest
@@ -24,5 +24,6 @@ RUN chmod +x /app/client && \
 # Then switch to non-root user
 RUN adduser -D -u 1000 appuser
 USER appuser
+
 
 CMD ["/app/client"]

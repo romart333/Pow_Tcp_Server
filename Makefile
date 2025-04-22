@@ -63,7 +63,7 @@ docker-build-all:
 # Start the services with docker-compose and rebuild images if necessary
 .PHONY: up
 up:
-	docker-compose up --build
+	docker-compose up --build --remove-orphans
 
 # Clean Docker containers and images
 .PHONY: clean
