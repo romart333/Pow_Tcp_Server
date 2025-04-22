@@ -66,8 +66,9 @@ func (s *Server) Run(ctx context.Context) error {
 			if err != nil {
 				<-s.connLimit // Release slot on error
 				if errors.Is(err, net.ErrClosed) {
-					return nil // Listener closed
+					return err // Listener closed
 				}
+				s.logger.Warn("Failed to accept connection", zap.Error(err))
 				continue
 			}
 
@@ -95,6 +96,7 @@ func (s *Server) acceptWithTimeout(ctx context.Context) (net.Conn, error) {
 			errChan <- err
 			return
 		}
+		s.logger.Info("Connection accepted", zap.String("remote_addr", conn.RemoteAddr().String()))
 		done <- conn
 	}()
 
